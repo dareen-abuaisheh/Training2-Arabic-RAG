@@ -1,0 +1,4 @@
+* text=auto eol=lf
+
+# Preserve data fingerprints and binary artifacts across operating systems.
+data/** -text

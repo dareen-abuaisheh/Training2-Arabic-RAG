@@ -1,0 +1,398 @@
+{
+  "schema_version": 1,
+  "language": "ar",
+  "ground_truth_basis": "Textual content of the two original PDFs, checked during review of the original pages. Questions do not require interpreting diagrams or images. Reference answers were not generated from retrieval results.",
+  "page_numbering": "One-based physical PDF pages. File1-Scanned.pdf pages 1-4 correspond to printed pages 51-54.",
+  "usage": "Evaluation only. Do not include this file or its reference answers in the retrieval corpus, chunks, or embeddings. This is a small development evaluation set, not an independent benchmark after tuning against it.",
+  "grading_notes": [
+    "Accept equivalent Arabic wording; assess the expected answer points rather than exact string equality.",
+    "For answerable questions, all listed evidence pages support required answer points. Check source-page coverage as well as the answer itself.",
+    "For unanswerable questions, the system should state that the requested information is not provided in these documents. Do not substitute outside knowledge.",
+    "Evaluate textual evidence only. Questions must not require interpreting images, diagram connections, or visual appearance.",
+    "Do not change reference answers or evidence pages to match retrieval output. Penalize unsupported added claims."
+  ],
+  "documents": [
+    {
+      "source": "File1-Scanned.pdf",
+      "path": "data/original/File1-Scanned.pdf",
+      "pages": 4,
+      "sha256": "4c40e34fedab216bee649a0c4b57ba3b2a468d5295f89891d60bc2484aba385a"
+    },
+    {
+      "source": "File2-Mixed.pdf",
+      "path": "data/original/File2-Mixed.pdf",
+      "pages": 19,
+      "sha256": "380d805fa7c75b618715341e700671a7cc6221b710c4e5b8628503828c04059f"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q001",
+      "type": "single_page",
+      "question": "كيف يمكن لتخصيص المحتوى في وسائل التواصل الاجتماعي أن يعزز التواصل ويخلق مشكلة معلوماتية في الوقت نفسه؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تعتمد منصات مثل فيسبوك وتويتر وإنستغرام على خوارزميات الذكاء الاصطناعي لتقديم محتوى مخصص للمستخدمين، مما يعزز التواصل.",
+        "قد يؤدي هذا التخصيص أيضًا إلى إنشاء فقاعات معلوماتية."
+      ],
+      "evidence": [{"source": "File1-Scanned.pdf", "page": 1}]
+    },
+    {
+      "id": "q002",
+      "type": "single_page",
+      "question": "ما الخطر النفسي والاجتماعي المحتمل للاعتماد المفرط على الذكاء الاصطناعي في التفاعل الاجتماعي، بحسب المحاضرة السابعة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "قد يزيد الاعتماد المفرط على الذكاء الاصطناعي في التفاعل الاجتماعي من العزلة الاجتماعية.",
+        "قد يؤثر ذلك على الصحة النفسية للأفراد؛ تعرض المحاضرة الأمر كأثر محتمل."
+      ],
+      "evidence": [{"source": "File1-Scanned.pdf", "page": 1}]
+    },
+    {
+      "id": "q003",
+      "type": "single_page",
+      "question": "ما وسائل القياسات الحيوية التي تذكرها المحاضرة للتحقق من الهوية، وما الفائدة الأمنية منها؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تحليل بصمات الأصابع وملامح الوجه ومسح قزحية العين.",
+        "تسريع التحقق من الهوية وتعزيز أمان المنشآت الحساسة."
+      ],
+      "evidence": [{"source": "File1-Scanned.pdf", "page": 2}]
+    },
+    {
+      "id": "q004",
+      "type": "single_page",
+      "question": "كيف يختلف استخدام الذكاء الاصطناعي في الدبلوماسية عن استخدامه في الدعاية السياسية كما تصفهما المحاضرة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "في الدبلوماسية يمكن استخدامه لتحليل البيانات الدبلوماسية واتخاذ قرارات مستنيرة بشأن العلاقات بين الدول.",
+        "في الدعاية السياسية يمكن إنشاء محتوى إعلامي مخصص وأخبار أو فيديوهات مزيفة للتأثير على الرأي العام والانتخابات والاستراتيجيات الإعلامية."
+      ],
+      "evidence": [{"source": "File1-Scanned.pdf", "page": 3}]
+    },
+    {
+      "id": "q005",
+      "type": "single_page",
+      "question": "ما المثالان اللذان تقدمهما المحاضرة عن استخدام الشركات للذكاء الاصطناعي لتقليل الحاجة إلى العمالة وللمساعدة في الكشف المبكر عن الأمراض؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تستخدم أمازون الروبوتات الذكية في مستودعاتها لتحسين الكفاءة وتقليل الحاجة إلى العمالة البشرية.",
+        "تذكر المحاضرة أنظمة التشخيص المعتمدة على الذكاء الاصطناعي في Google Health لمساعدة الأطباء في الكشف المبكر عن الأمراض."
+      ],
+      "evidence": [{"source": "File1-Scanned.pdf", "page": 4}]
+    },
+    {
+      "id": "q006",
+      "type": "single_page",
+      "question": "هل تعرض المحاضرة تفوق الذكاء الاصطناعي على البشر كحقيقة حتمية أم كتخوف مستقبلي؟ وما الإجراء الأخلاقي والقانوني الذي تدعو إليه؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تعرض تخوفات من أن يصبح الذكاء الاصطناعي أكثر تقدمًا من البشر، وما قد يترتب على ذلك من صعوبة السيطرة عليه، دون تقديمه كحقيقة حتمية.",
+        "تدعو إلى وضع قوانين وأطر أخلاقية تحكم استخدام الذكاء الاصطناعي وتمنع إساءة استخدامه."
+      ],
+      "evidence": [{"source": "File1-Scanned.pdf", "page": 4}]
+    },
+    {
+      "id": "q007",
+      "type": "single_page",
+      "question": "ما فروع علم الذكاء الاصطناعي التي تسردها المحاضرة الثانية؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "منطق الذكاء الاصطناعي، والبحث، والتمييز النمطي والنموذجي.",
+        "التمثيل، والاستدلال والاستنتاج، والتعليل أو المعرفة العامة والاستدلال المرتبط بها.",
+        "التعلم بالخبرة، والتخطيط، ونظرية المعرفة.",
+        "علم الوجود، والحدس، والبرمجة الوراثية."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 2}]
+    },
+    {
+      "id": "q008",
+      "type": "single_page",
+      "question": "ما لغات البرمجة التي تذكرها المحاضرة الثانية لإنتاج برامج الذكاء الاصطناعي؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تذكر المحاضرة Lisp وPython وProlog وJava وC++."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 3}]
+    },
+    {
+      "id": "q009",
+      "type": "single_page",
+      "question": "كيف تصف المحاضرة التراكيب الخوارزمية في البرامج التقليدية، وبماذا تقابلها من نشاطات عقلية؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تصف التراكيب الخوارزمية بأنها خطوات محددة ومعروفة البداية والنهاية، ويؤدي اتباعها إلى حل المشكلة.",
+        "تذكر أن البرامج التقليدية تبنى على هذه التراكيب.",
+        "تقابلها بالنشاطات العقلية، مثل الاستنتاج المنطقي، التي تصفها بأنها غير خوارزمية ولا تتبع إجراءات محددة وثابتة."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 7}]
+    },
+    {
+      "id": "q010",
+      "type": "single_page",
+      "question": "على أي أساس يصدر الإنسان أحكامه الحدسية، وكيف يربط تعريف الذكاء الاصطناعي الوارد في المحاضرة بين الحدس والمعالجة المرمزة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "الحدس هو الحكم على الأحداث بالخبرة التجريبية، ويساعد الإنسان في اتخاذ قراراته المستقبلية.",
+        "يربط التعريف الذكاء الاصطناعي بالمعالجة المرمزة لتمثيل المعرفة وبمحاكاة أسلوب الحدس عند الإنسان في معالجة المعلومات."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 8}]
+    },
+    {
+      "id": "q011",
+      "type": "single_page",
+      "question": "ما الطرائق الأربع لحل المعضلات في الذكاء الاصطناعي التي تذكرها المحاضرة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "البحث عن الحل في فضاء الحالة باستخدام العميل الذكي وخوارزميات البحث.",
+        "التفكير في وسط غير أكيد باستخدام نظم المنطق والتفكير والاحتمالية وعدم التأكد ونظرية اتخاذ القرارات.",
+        "التخطيط باستخدام نظم التخطيط والترتيب.",
+        "التعلم الأوتوماتيكي."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 10}]
+    },
+    {
+      "id": "q012",
+      "type": "single_page",
+      "question": "هل يفترض مثال الطيور في المحاضرة أن الصفات المعتادة تنطبق على كل الطيور؟ وما الصعوبة التي يوضحها هذا المثال؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "لا؛ قد يتخيل الإنسان عند ذكر الطيور حيوانًا صغيرًا يغني ويطير، لكن هذه الصفات لا تنطبق على جميع الطيور.",
+        "يوضح المثال التفكير الافتراضي ومشكلة التأهيل أو المؤهلات: القواعد العامة لها استثناءات كثيرة تصعّب تمثيلها بمنطق مجرد."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 12}]
+    },
+    {
+      "id": "q013",
+      "type": "single_page",
+      "question": "لماذا يتطلب بناء قاعدة كاملة من المعرفة المنطقية جهدًا أنطولوجيًا كبيرًا، وما الهدف من تمكين الحاسوب من قراءة مصادر مثل الإنترنت؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "يتطلب بناء قاعدة كاملة من المعرفة كميات كبيرة من الهندسة الأنطولوجية وبناء المفاهيم المعقدة واحدًا تلو الآخر.",
+        "الهدف أن يفهم الحاسوب مفاهيم كثيرة بما يسمح له بالتعلم من القراءة وإضافة معرفة إلى أنطولوجيته."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 13}]
+    },
+    {
+      "id": "q014",
+      "type": "single_page",
+      "question": "ماذا يوضح مثالا لاعب الشطرنج والناقد الفني عن المعرفة التي يصعب التعبير عنها في صورة حقائق صريحة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "قد يتجنب لاعب الشطرنج الخبير وضعًا لأنه يبدو مكشوفًا أو غير آمن، وقد يتعرف الناقد الفني إلى تمثال مزيف بنظرة واحدة.",
+        "تعرض المحاضرة هذه المعرفة كبديهيات أو ميول غير واعية وشبه رمزية، تدعم المعرفة الرمزية الواعية وتوفر لها سياقًا."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 14}]
+    },
+    {
+      "id": "q015",
+      "type": "single_page",
+      "question": "كيف تميز المحاضرة بين التعلم بدون إشراف، والتعلم تحت الإشراف، والتعلم الذي يعتمد على المكافأة والعقاب؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "التعلم بدون إشراف هو إيجاد أنماط في عدد كبير من المدخلات.",
+        "التعلم تحت الإشراف يشمل التصنيف والتراجع أو الانحدار اعتمادًا على أمثلة من المدخلات والمخرجات.",
+        "في التعلم التقويمي يكافأ الكيان على الاستجابة الحسنة ويعاقب على الاستجابة السيئة، ويمكن تحليل ذلك بمفاهيم مثل المنفعة ونظرية القرار."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 16}]
+    },
+    {
+      "id": "q016",
+      "type": "single_page",
+      "question": "ما القدرة التي تمنحها معالجة اللغات الطبيعية للآلات، وما التطبيقات المباشرة التي تسردها المحاضرة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تمنح الآلات القدرة على قراءة وفهم اللغات التي يتحدثها البشر.",
+        "تشمل التطبيقات استرجاع المعلومات أو تحليل النصوص والترجمة الآلية."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 17}]
+    },
+    {
+      "id": "q017",
+      "type": "single_page",
+      "question": "ما الفرق بين تحديد المكان ورسم الخرائط وتخطيط الحركة في مثال الروبوتات الوارد في المحاضرة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تحديد المكان يعني أن يعرف الروبوت أين يوجد.",
+        "رسم الخرائط يعني أن يعرف ما حوله.",
+        "تخطيط الحركة يعني أن يعرف كيف يصل إلى وجهته."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 18}]
+    },
+    {
+      "id": "q018",
+      "type": "multi_page",
+      "question": "ما التطبيقات الثلاثة المذكورة تحت تكامل الذكاء الاصطناعي في الأنظمة الأمنية، وكيف يعمل كل منها بحسب المحاضرة السابعة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "كشف التسلل: ربط أحداث متعددة وتحليل الاحتمالات لتوليد استجابات أذكى، مع إمكان التنبؤ بتدفقات الزوار وتحسين توزيع الموارد.",
+        "التحقق من الهوية والقياسات الحيوية: تحليل بصمات الأصابع وملامح الوجه وقزحية العين لتسريع التحقق من الهوية.",
+        "المراقبة بالفيديو: الانتقال من مجرد تسجيل الصور إلى التعرف على الأنشطة المشبوهة في الوقت الفعلي لتحسين الاستجابة الأمنية."
+      ],
+      "evidence": [
+        {"source": "File1-Scanned.pdf", "page": 2},
+        {"source": "File1-Scanned.pdf", "page": 3}
+      ]
+    },
+    {
+      "id": "q019",
+      "type": "multi_page",
+      "question": "كيف تربط المحاضرة بين تغير التعاون والعلاقات المهنية داخل العمل وبين الخطر المستقبلي للأتمتة على الوظائف التقليدية؟ اذكر المثال الوارد عن الشركات.",
+      "answerable": true,
+      "expected_answer_points": [
+        "استخدام الذكاء الاصطناعي في التوظيف وأتمتة الوظائف يغير العلاقات المهنية وطبيعة التعاون بين الموظفين.",
+        "قد تؤدي الأتمتة إلى فقدان وظائف تقليدية، وخاصة في التصنيع وخدمة العملاء.",
+        "تذكر المحاضرة روبوتات مستودعات أمازون مثالًا على تحسين الكفاءة وتقليل الحاجة إلى العمالة البشرية."
+      ],
+      "evidence": [
+        {"source": "File1-Scanned.pdf", "page": 1},
+        {"source": "File1-Scanned.pdf", "page": 4}
+      ]
+    },
+    {
+      "id": "q020",
+      "type": "multi_page",
+      "question": "كيف جرى تقسيم مشكلة محاكاة الذكاء، وكيف تتعامل المحاضرة مع تحديي نقص المعلومات وضخامة الحسابات عند حل المشكلات؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "قسمت مشكلة محاكاة أو خلق الذكاء إلى مشكلات فرعية محددة تمثل سمات أو قدرات يراد تجسيدها في نظام ذكي.",
+        "التحدي الأول هو التعامل مع معلومات غير مؤكدة أو غير كاملة؛ وتذكر المحاضرة استخدام مفاهيم من الاحتمالية والاقتصاد.",
+        "التحدي الثاني هو الحاجة إلى موارد حسابية هائلة أو انفجار اندماجي يجعل الذاكرة أو الوقت المطلوبين كبيرين جدًا عند زيادة حجم المشكلة.",
+        "لذلك تبرز أهمية البحث عن خوارزميات أكثر قدرة على حل المشكلات."
+      ],
+      "evidence": [
+        {"source": "File2-Mixed.pdf", "page": 4},
+        {"source": "File2-Mixed.pdf", "page": 5},
+        {"source": "File2-Mixed.pdf", "page": 6}
+      ]
+    },
+    {
+      "id": "q021",
+      "type": "multi_page",
+      "question": "ما المعلومات التي يحتاج الذكاء الاصطناعي إلى تمثيلها عن العالم، وما المقصود بالأنطولوجية، ولماذا تجعل الاستثناءات صياغة القواعد العامة صعبة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تشمل المعلومات الأشياء وخواصها والمجموعات والعلاقات، والمواقف والأحداث والزمن، والأسباب والنتائج، والمعرفة عما يعرفه الناس.",
+        "يسمى التمثيل الكامل لما هو موجود أنطولوجية أو وجودية، وتسمى الأشكال الأكثر شمولًا أنطولوجيات عليا.",
+        "كثير من المعرفة افتراضي؛ وللقواعد العامة استثناءات كثيرة، كما في مثال الصفات المعتادة للطيور، مما يصعب تمثيلها بمنطق مجرد."
+      ],
+      "evidence": [
+        {"source": "File2-Mixed.pdf", "page": 11},
+        {"source": "File2-Mixed.pdf", "page": 12}
+      ]
+    },
+    {
+      "id": "q022",
+      "type": "multi_page",
+      "question": "ما الطريقتان لحل المعضلات المرتبطتان بالبحث والتخطيط، وما قدرات الكيان المخطط وكيف يتصرف عندما تخالف البيئة توقعاته؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "يمكن البحث عن الحل في فضاء الحالة باستخدام خوارزميات البحث والعميل الذكي، أو إيجاد الحل بالتخطيط باستخدام نظم التخطيط والترتيب.",
+        "يحتاج الكيان المخطط إلى تحديد الأهداف وتصور المستقبل والتنبؤ بتأثير أفعاله والاختيار لتعظيم الفائدة أو القيمة.",
+        "إذا لم يكن الكيان وحده المؤثر في العالم، فعليه التحقق دوريًا من اتساق توقعاته مع الواقع وتغيير خطته عند الضرورة والعمل في ظل عدم اليقين."
+      ],
+      "evidence": [
+        {"source": "File2-Mixed.pdf", "page": 10},
+        {"source": "File2-Mixed.pdf", "page": 15}
+      ]
+    },
+    {
+      "id": "q023",
+      "type": "cross_document",
+      "question": "استنادًا إلى المحاضرتين، ما قدرات معالجة اللغة الطبيعية وتطبيقاتها، وما التغير الاجتماعي الذي تربطه المحاضرة السابعة بانتشار المساعدين الذكيين؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تمنح معالجة اللغة الطبيعية الآلات القدرة على قراءة وفهم لغات البشر، ومن تطبيقاتها استرجاع المعلومات أو تحليل النصوص والترجمة الآلية.",
+        "تذكر المحاضرة السابعة أن انتشار المساعدين الذكيين عزز التفاعل بين البشر والآلات وأسهم في تغيير طبيعة العلاقات الاجتماعية."
+      ],
+      "evidence": [
+        {"source": "File2-Mixed.pdf", "page": 17},
+        {"source": "File1-Scanned.pdf", "page": 1}
+      ],
+      "notes": "Combine the two stated observations; do not claim that either document describes the internal implementation of Alexa or Siri."
+    },
+    {
+      "id": "q024",
+      "type": "cross_document",
+      "question": "ما المهام التي تحتاج فيها الروبوتات إلى الذكاء وفق المحاضرة الثانية، وما الأثر الوظيفي الذي توضحه المحاضرة السابعة بمثال أمازون؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "تشمل المهام تغيير الأشياء والملاحة، وتحديد المكان ورسم الخرائط وتخطيط الحركة، واستخدام أجهزة الاستشعار والخوارزميات لتجنب العقبات.",
+        "تذكر المحاضرة السابعة اعتماد أمازون على روبوتات ذكية في المستودعات لتحسين الكفاءة وتقليل الحاجة إلى العمالة البشرية، ضمن مخاوف البطالة بسبب الأتمتة."
+      ],
+      "evidence": [
+        {"source": "File2-Mixed.pdf", "page": 18},
+        {"source": "File1-Scanned.pdf", "page": 4}
+      ],
+      "notes": "Do not infer specific algorithms used by Amazon; the source does not identify them."
+    },
+    {
+      "id": "q025",
+      "type": "single_page",
+      "question": "كيف تصف المحاضرة التخطيط باستخدام كيانات متعددة، وما نوعا الخوارزميات اللذان يستخدمان السلوك الناشئ عنه؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "يستخدم التخطيط بكيانات متعددة التعاون والمنافسة بين كثير من الكيانات لتحقيق هدف معين.",
+        "تستخدم الخوارزميات التطورية والذكاء السربي هذا السلوك الناشئ."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 15}],
+      "notes": "Supported by the written paragraph about multi-agent planning. No diagram interpretation is required."
+    },
+    {
+      "id": "q026",
+      "type": "single_page",
+      "question": "ما الفرع الذي يدرس التحليل الرياضي لخوارزميات تعلم الآلة وأدائها، وإلى أي مجال ينتمي بحسب المحاضرة؟",
+      "answerable": true,
+      "expected_answer_points": [
+        "يسمى هذا الفرع نظرية التعلم الحسابية.",
+        "ينتمي إلى علوم الكمبيوتر النظرية."
+      ],
+      "evidence": [{"source": "File2-Mixed.pdf", "page": 16}],
+      "notes": "Supported by the final written sentence of the machine-learning page."
+    },
+    {
+      "id": "q027",
+      "type": "unanswerable",
+      "question": "ما اسم الخوارزمية المحددة ومجموعة البيانات التي اعتمدت عليها أنظمة كشف التسلل المذكورة في المحاضرة؟",
+      "answerable": false,
+      "expected_answer_points": [
+        "يوضح النظام أن المحاضرة تصف ربط الأحداث وتحليل الاحتمالات في كشف التسلل، لكنها لا تحدد اسم خوارزمية أو مجموعة بيانات مستخدمة."
+      ],
+      "evidence": [],
+      "notes": "Text-only missing-detail test based on the intrusion-detection paragraph on File1-Scanned.pdf page 2. Do not infer algorithm or dataset names from general knowledge."
+    },
+    {
+      "id": "q028",
+      "type": "unanswerable",
+      "question": "ما النسبة المئوية للوظائف التي ألغتها روبوتات أمازون في مستودعاتها، وفق الأرقام المذكورة في المحاضرة؟",
+      "answerable": false,
+      "expected_answer_points": [
+        "يوضح النظام أن المحاضرة تذكر تقليل الحاجة إلى العمالة البشرية في مستودعات أمازون، لكنها لا تقدم نسبة مئوية أو أرقامًا عن وظائف ألغيت."
+      ],
+      "evidence": [],
+      "notes": "Near-topic missing-statistic test. Do not invent a percentage or assume that a reported job reduction was quantified."
+    },
+    {
+      "id": "q029",
+      "type": "unanswerable",
+      "question": "متى ظهر الروبوت أسيمو لأول مرة، وما سرعته القصوى، بحسب المحاضرة الثانية؟",
+      "answerable": false,
+      "expected_answer_points": [
+        "يوضح النظام أن المحاضرة تذكر اسم أسيمو مثالًا على الحركة وتجنب العقبات، لكنها لا تذكر تاريخ ظهوره الأول ولا سرعته القصوى."
+      ],
+      "evidence": [],
+      "notes": "The name appears on File2-Mixed.pdf page 18. General knowledge about the robot is not evidence from these documents."
+    },
+    {
+      "id": "q030",
+      "type": "unanswerable",
+      "question": "أي نموذج تضمين وحد أقصى لعدد الرموز توصي بهما المحاضرتان لبناء نظام استرجاع معزز بالتوليد؟",
+      "answerable": false,
+      "expected_answer_points": [
+        "يوضح النظام أن المحاضرتين لا تقدمان توصية بنموذج تضمين أو حد للرموز لبناء نظام استرجاع معزز بالتوليد."
+      ],
+      "evidence": [],
+      "notes": "Do not answer from this project's model configuration or chat history. The evaluation is restricted to the original document corpus."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+requests
+python-dotenv
+transformers==5.20.2
+numpy==2.5.4
+torch==2.14.1+cpu
+faiss-cpu==1.15.1
+streamlit==1.66.0
